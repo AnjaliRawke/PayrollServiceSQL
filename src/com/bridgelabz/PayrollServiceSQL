@@ -212,3 +212,21 @@ Output -> 20:20:02	alter table employee_payroll add basic_pay int after salary	0
           '3', 'Shubham', 'Male', '80000', '2200000', '50000', '200000', '80000', '600000', 'HR', '2021-06-10', '955423', 'bangalore'
           '4', 'Pranjali', 'Female', '90000', '3400000', '10000', '250000', '75000', '500000', '.net developer', '2018-07-01', '8554236', 'mumbai'
           '5', 'Mayur', 'Male', '1000000', '9000000', '65000', '500000', '70000', '400000', 'Marketing', '2022-05-12', '95556248', 'bangalore'
+
+#UC10: Ability to make Stanley as part of Sales and Marketing Department
+SQL Query -> insert into employee_payroll(name, gender, salary, basic_pay, deductions, taxable_pay, income_tax, net_pay, department, start, phonenumber, address) values
+           ("Mayura", "Male", "1000000.0", "900000.0", "65000.0", "500000.0", "70000", "400000.0", "sales and marketing", "2022-05-12", "95556248", "bangalore");
+
+           select * from employee_payroll;
+
+Output -> 20:34:50	insert into employee_payroll(name, gender, salary, basic_pay, deductions, taxable_pay, income_tax, net_pay, department, start, phonenumber, address) values            ("Mayur", "Male", "1000000.0", "900000.0", "65000.0", "500000.0", "70000", "400000.0", "sales and marketing", "2022-05-12", "95556248", "bangalore")	1 row(s) affected	0.016 sec
+
+          20:34:50	select * from employee_payroll LIMIT 0, 1000	6 row(s) returned	0.000 sec / 0.000 sec
+
+          id, name, gender, salary, basic_pay, deductions, taxable_pay, income_tax, net_pay, department, start, phonenumber, address
+          '1', 'Anjali', 'Female', '50000', '4500000', '25000', '400000', '75000', '500000', 'java developer', '2023-01-14', '75221145', 'pune'
+          '2', 'Apeksha', 'Female', '70000', '4000000', '20000', '300000', '90000', '700000', 'mule developer', '2022-03-12', '94563221', 'pune'
+          '3', 'Shubham', 'Male', '80000', '2200000', '50000', '200000', '80000', '600000', 'HR', '2021-06-10', '955423', 'bangalore'
+          '4', 'Pranjali', 'Female', '90000', '3400000', '10000', '250000', '75000', '500000', '.net developer', '2018-07-01', '8554236', 'mumbai'
+          '5', 'Mayur', 'Male', '1000000', '900000', '65000', '500000', '70000', '400000', 'sales and marketing', '2022-05-12', '95556248', 'bangalore'
+
