@@ -15,3 +15,12 @@ SQL Query -> create table employee_payroll(id int not null auto_increment,
 
 Output -> 18:13:25	create table employee_payroll(id int not null auto_increment,                               name varchar(30) not null ,                               salary double not null,                               start date not null,        primary key(id))	0 row(s) affected	0.046 sec
 
+ #UC3: Ability to create employee payroll data in the payroll service database as part of CRUD Operation
+SQL Query -> insert into employee_payroll(name,salary,start)
+           values("Anjali",50000.0,'2023-01-14'),
+           ("Apeksha",70000.0,'2022-03-12'),
+           ("Shubham",80000.0,'2021-06-10'),
+           ("Pranjali",90000.0,'2018-07-01');
+
+Output -> 18:18:38	insert into employee_payroll(name,salary,start)            values("Anjali",50000.0,'2023-01-14'),            ("Apeksha",70000.0,'2022-03-12'),            ("Shubham",80000.0,'2021-06-10'),            ("Pranjali",90000.0,'2018-07-01')	4 row(s) affected Records: 4  Duplicates: 0  Warnings: 0	0.015 sec
+
