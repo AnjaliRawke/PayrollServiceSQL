@@ -235,3 +235,93 @@ Output -> PayrollServiceERDiagram.mwb
 
 #UC11: Update ER Diagram
 Output -> PayrollServiceERDiagram.mwb
+
+#UC12: Ensure all retrieve queries done especially in UC 4, UC 5 and UC 7 are working with new table structure
+SQL Query -> UC4
+           select * from employee_payroll;
+
+           insert into employee_department(employee_id, department_id, department) values
+           ("1", "101", "devops"),
+           ("2", "102", "full-stack-developer"),
+           ("3", "103", "production"),
+           ("4", "104", ".net developer"),
+           ("5", "105", "full-stack-developer"),
+           ("6", "106", "sales and marketing");
+
+           select * from employee_department;
+
+           UC5
+           select * from employee_payroll
+           where name = "Anjali";
+
+           select * from employee_payroll
+           where start between cast('2021-06-10' as date)  and date(now());
+
+           UC7
+           select sum(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select avg(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select min(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select max(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select count(id) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select count(id) from employee_payroll
+           where gender = "Female" group by gender;
+
+Output -> 21:09:15	select * from employee_payroll LIMIT 0, 1000	5 row(s) returned	0.016 sec / 0.000 sec
+
+          21:06:35	insert into employee_department(employee_id, department_id, department) values            ("1", "101", "devops"),            ("2", "102", "full-stack-developer"),            ("3", "103", "production"),            ("4", "104", ".net developer"),            ("5", "105", "full-stack-developer"),            ("6", "106", "sales and marketing")	6 row(s) affected Records: 6  Duplicates: 0  Warnings: 0	0.016 sec
+
+          21:06:40	select * from employee_department LIMIT 0, 1000	6 row(s) returned	0.000 sec / 0.000 sec
+          employee_id, department_id, department
+          '1', '101', 'devops'
+          '2', '102', 'full-stack-developer'
+          '3', '103', 'production'
+          '4', '104', '.net developer'
+          '5', '105', 'full-stack-developer'
+          '6', '106', 'sales and marketing'
+
+          21:06:54	select * from employee_payroll            where name = "Anjali" LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          id, name, gender, salary, basic_pay, deductions, taxable_pay, income_tax, net_pay, department, start, phonenumber, address
+          '1', 'Anjali', 'Female', '50000', '4500000', '25000', '400000', '75000', '500000', 'java developer', '2023-01-14', '75221145', 'pune'
+
+          21:07:24	select * from employee_payroll            where start between cast('2021-06-10' as date)  and date(now()) LIMIT 0, 1000	4 row(s) returned	0.000 sec / 0.000 sec
+          id, name, gender, salary, basic_pay, deductions, taxable_pay, income_tax, net_pay, department, start, phonenumber, address
+          '1', 'Anjali', 'Female', '50000', '4500000', '25000', '400000', '75000', '500000', 'java developer', '2023-01-14', '75221145', 'pune'
+          '2', 'Apeksha', 'Female', '70000', '4000000', '20000', '300000', '90000', '700000', 'mule developer', '2022-03-12', '94563221', 'pune'
+          '3', 'Shubham', 'Male', '80000', '2200000', '50000', '200000', '80000', '600000', 'HR', '2021-06-10', '955423', 'bangalore'
+          '5', 'Mayur', 'Male', '1000000', '900000', '65000', '500000', '70000', '400000', 'sales and marketing', '2022-05-12', '95556248', 'bangalore'
+
+          21:07:33	select sum(salary) from employee_payroll            where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          sum(salary)
+          '1080000'
+
+          21:07:37	select avg(salary) from employee_payroll            where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          avg(salary)
+          540000
+
+          21:11:42	select min(salary) from employee_payroll            where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          min(salary)
+          80000
+
+          21:11:58	select max(salary) from employee_payroll            where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.016 sec / 0.000 sec
+          max(salary)
+          '1000000'
+
+          21:11:58	select count(id) from employee_payroll            where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          count(id)
+          2
+
+          21:11:58	select count(id) from employee_payroll            where gender = "Female" group by gender LIMIT 0, 1000	1 row(s) returned	0.016 sec / 0.000 sec
+          count(id)
+          3
+
+
