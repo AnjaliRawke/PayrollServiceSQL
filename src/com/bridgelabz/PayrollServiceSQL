@@ -77,3 +77,47 @@ Output -> id, name, gender, salary, start
           '3', 'Shubham', 'Male', '80000', '2021-06-10'
           '4', 'Pranjali', 'Female', '90000', '2018-07-01'
           '5', 'Mayur', 'Male', '1000000', '2022-05-12'
+
+
+#UC7: Ability to find sum, average, min, max and number of male and female employees
+SQL Query -> select sum(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select avg(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select min(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select max(salary) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select count(id) from employee_payroll
+           where gender = "Male" group by gender;
+
+           select count(id) from employee_payroll
+           where gender = "Female" group by gender;
+
+Output -> 19:13:32	select sum(salary) from employee_payroll where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.016 sec / 0.000 sec
+          sum(salary)
+          '1080000'
+
+          19:14:25	select avg(salary) from employee_payroll where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.015 sec / 0.000 sec
+          avg(salary)
+          '540000'
+
+          19:14:57	select min(salary) from employee_payroll where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          min(salary)
+          '80000'
+
+          19:15:28	select max(salary) from employee_payroll where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          max(salary)
+          '1000000'
+
+          19:15:53	select count(id) from employee_payroll where gender = "Male" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          count(id)
+          '2'
+
+          19:17:03	select count(id) from employee_payroll where gender = "Female" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          count(id)
+          '3'
