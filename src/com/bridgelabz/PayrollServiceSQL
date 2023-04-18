@@ -51,4 +51,29 @@ Output -> 18:31:30	select * from employee_payroll   where name = "Pranjali" LIMI
           '1', 'Anjali', '50000', '2023-01-14'
           '2', 'Apeksha', '70000', '2022-03-12'
 
+#UC6: Ability to add Gender to Employee Payroll Table and Update the Rows to reflect the correct Employee Gender
+SQL Query -> insert into employee_payroll(name,salary,start) values
+           ("Mayur",1000000.0,'2022-05-12');
 
+alter table employee_payroll add gender varchar(10) after name;
+
+update employee_payroll
+set gender = "Male" where id =3;
+
+update employee_payroll
+set gender = "Male" where id= 5;
+
+update employee_payroll
+set gender = "Female" where id < 3;
+
+update employee_payroll
+set gender = "Female" where id = 4;
+
+select * from employee_payroll;
+
+Output -> id, name, gender, salary, start
+          '1', 'Anjali', 'Female', '50000', '2023-01-14'
+          '2', 'Apeksha', 'Female', '70000', '2022-03-12'
+          '3', 'Shubham', 'Male', '80000', '2021-06-10'
+          '4', 'Pranjali', 'Female', '90000', '2018-07-01'
+          '5', 'Mayur', 'Male', '1000000', '2022-05-12'
