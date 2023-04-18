@@ -230,3 +230,5 @@ Output -> 20:34:50	insert into employee_payroll(name, gender, salary, basic_pay,
           '4', 'Pranjali', 'Female', '90000', '3400000', '10000', '250000', '75000', '500000', '.net developer', '2018-07-01', '8554236', 'mumbai'
           '5', 'Mayur', 'Male', '1000000', '900000', '65000', '500000', '70000', '400000', 'sales and marketing', '2022-05-12', '95556248', 'bangalore'
 
+#UC_10: Draw the ER Diagram for Payroll Service DB
+Output -> PayrollServiceERDiagram.mwb
