@@ -35,3 +35,20 @@ Output -> 18:23:02	select * from employee_payroll LIMIT 0, 1000	4 row(s) returne
           '3', 'Shubham', '80000', '2021-06-10'
           '4', 'Pranjali', '90000', '2018-07-01'
 
+#UC5: Ability to retrieve salary data for a particular employee as well as all employees who have joined in a particular data range from the payroll service database
+SQL Query -> select * from employee_payroll
+		where name = "Pranjali";
+
+select * from employee_payroll
+		where start between cast('2022-03-12' as date)  and date(now());
+
+Output -> 18:31:30	select * from employee_payroll   where name = "Pranjali" LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+          id, name, salary, start
+          '4', 'Pranjali', '90000', '2018-07-01'
+
+          18:32:52	select * from employee_payroll   where start between cast('2022-03-12' as date)  and date(now()) LIMIT 0, 1000	2 row(s) returned	0.016 sec / 0.000 sec
+          id, name, salary, start
+          '1', 'Anjali', '50000', '2023-01-14'
+          '2', 'Apeksha', '70000', '2022-03-12'
+
+
