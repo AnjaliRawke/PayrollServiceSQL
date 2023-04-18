@@ -232,3 +232,6 @@ Output -> 20:34:50	insert into employee_payroll(name, gender, salary, basic_pay,
 
 #UC_10: Draw the ER Diagram for Payroll Service DB
 Output -> PayrollServiceERDiagram.mwb
+
+#UC11: Update ER Diagram
+Output -> PayrollServiceERDiagram.mwb
