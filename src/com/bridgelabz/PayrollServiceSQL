@@ -121,3 +121,45 @@ Output -> 19:13:32	select sum(salary) from employee_payroll where gender = "Male
           19:17:03	select count(id) from employee_payroll where gender = "Female" group by gender LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
           count(id)
           '3'
+
+#UC8: Ability to extend employee_payroll data to store employee information like employee phone, address and department
+SQL Query -> alter table employee_payroll add phonenumber int after start;
+alter table employee_payroll add address varchar(100) after phonenumber;
+alter table employee_payroll add department varchar(50) after salary;
+
+update employee_payroll set department = 'java developer', phonenumber = 75221145 , address = "pune"
+where id = 1;
+update employee_payroll set department = 'mule developer', phonenumber = 94563221 , address = "pune"
+where id = 2;
+update employee_payroll set department = '.net developer', phonenumber = 8554236, address = "mumbai"
+where id = 4;
+update employee_payroll set department = 'HR', phonenumber = 955423, address = "bangalore"
+where id = 3;
+update employee_payroll set department = 'Marketing', phonenumber = 95556248, address = "bangalore"
+where id = 5;
+
+select * from employee_payroll;
+
+Output -> 	20:01:37	alter table employee_payroll add phonenumber int after start	0 row(s) affected Records: 0  Duplicates: 0  Warnings: 0	0.078 sec
+
+            20:01:37	alter table employee_payroll add address varchar(100) after phonenumber	0 row(s) affected Records: 0  Duplicates: 0  Warnings: 0	0.016 sec
+
+            20:01:37	alter table employee_payroll add department varchar(50) after salary	0 row(s) affected Records: 0  Duplicates: 0  Warnings: 0	0.015 sec
+
+            20:06:22	update employee_payroll set department = 'java developer', phonenumber = 75221145 , address = "pune" where id = 1	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.000 sec
+
+            20:06:22	update employee_payroll set department = 'mule developer', phonenumber = 94563221 , address = "pune" where id = 2	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.000 sec
+
+            20:06:22	update employee_payroll set department = '.net developer', phonenumber = 8554236, address = "mumbai" where id = 4	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.015 sec
+
+            20:06:22	update employee_payroll set department = 'HR', phonenumber = 955423, address = "bangalore" where id = 3	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.000 sec
+
+            20:06:22	update employee_payroll set department = 'Marketing', phonenumber = 95556248, address = "bangalore" where id = 5	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.000 sec
+
+            id, name, gender, salary, department, start, phonenumber, address
+            '1', 'Anjali', 'Female', '50000', 'java developer', '2023-01-14', '75221145', 'pune'
+            '2', 'Apeksha', 'Female', '70000', 'mule developer', '2022-03-12', '94563221', 'pune'
+            '3', 'Shubham', 'Male', '80000', 'HR', '2021-06-10', '955423', 'bangalore'
+            '4', 'Pranjali', 'Female', '90000', '.net developer', '2018-07-01', '8554236', 'mumbai'
+            '5', 'Mayur', 'Male', '1000000', 'Marketing', '2022-05-12', '95556248', 'bangalore'
+
