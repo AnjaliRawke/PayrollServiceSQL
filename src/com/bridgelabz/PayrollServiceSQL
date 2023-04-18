@@ -24,3 +24,14 @@ SQL Query -> insert into employee_payroll(name,salary,start)
 
 Output -> 18:18:38	insert into employee_payroll(name,salary,start)            values("Anjali",50000.0,'2023-01-14'),            ("Apeksha",70000.0,'2022-03-12'),            ("Shubham",80000.0,'2021-06-10'),            ("Pranjali",90000.0,'2018-07-01')	4 row(s) affected Records: 4  Duplicates: 0  Warnings: 0	0.015 sec
 
+#UC4: Ability to retrieve all the employee payroll data that is added to payroll service database
+SQL Query -> select * from employee_payroll;
+
+Output -> 18:23:02	select * from employee_payroll LIMIT 0, 1000	4 row(s) returned	0.000 sec / 0.000 sec
+
+          id, name, salary, start
+          '1', 'Anjali', '50000', '2023-01-14'
+          '2', 'Apeksha', '70000', '2022-03-12'
+          '3', 'Shubham', '80000', '2021-06-10'
+          '4', 'Pranjali', '90000', '2018-07-01'
+
